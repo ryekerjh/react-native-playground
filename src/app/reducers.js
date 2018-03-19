@@ -1,25 +1,24 @@
-//FOR REDUX
-import {combineReducers } from 'redux';
-export const ADD_POST = 'ADD_POST';
+import { combineReducers } from 'redux';
 
-const data = (state = {}) => {
+//all reducers are functions, 1st arg always current state, second always action
+//Reducer just uses array.reduce in a more complicated way on our state
+const CREATE_TODO = 'CREATE_TODO';
+
+const user = (state = {}, action) => {
   return state;
-}
-const reddit = (state = [
-  {name: 'demo'},
-  {name: 'hello'}
-], action) => {
+};
+
+
+const todos = (state = [], action) => {
   switch(action.type) {
-   case ADD_POST:
-    return [
-      action.payload,
-      ...state
-    ];
-  default: 
-    return state;
+    case CREATE_TODO:
+      return [  //You cannot mutate state in a reducer, it returns an err, so we spread state and create a new array
+        action.payload, //.payload is just a standard that class agreed to, action.payload is whatever you're adding to state
+        ...state
+      ];
+      default: 
+        return state;
   }
-}
+};
 
-export const reducer = combineReducers({reddit})
-
-
+export const reducer = combineReducers({todos, user});

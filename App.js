@@ -16,13 +16,14 @@ import {
 import { Todo } from './src/app/Todo';
 import {Fancy} from './src/app/Fancy';
 import {Reddit} from './src/app/Reddit';
-import {Provider} from 'react-redux';
 import { store } from './src/app/store';
+import { Provider } from 'react-redux'; //Gives us access to 
+import { Main as Root} from './src/app/Main';
 export default class App extends Component<Props> {
   render() {
     return (
     <Provider store={store}>
-      <Todo />
+      <Root />
     </Provider>
     );
   }
