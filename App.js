@@ -16,19 +16,14 @@ import {
 import { Todo } from './src/app/Todo';
 import {Fancy} from './src/app/Fancy';
 import {Reddit} from './src/app/Reddit';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
+import {Provider} from 'react-redux';
+import { store } from './src/app/store';
 export default class App extends Component<Props> {
   render() {
     return (
-     <Todo />
+    <Provider store={store}>
+      <Todo />
+    </Provider>
     );
   }
 }

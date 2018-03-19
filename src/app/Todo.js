@@ -8,6 +8,7 @@ import {
   Switch
 } from 'react-native';
 import {styles} from './styles';
+import { Reddit } from './Reddit';
 
 export class Todo extends Component {
   constructor() {
@@ -52,6 +53,7 @@ export class Todo extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.form}>
+        <Reddit />
           <TextInput
             style={styles.input}
             value={this.state.newTodo}
